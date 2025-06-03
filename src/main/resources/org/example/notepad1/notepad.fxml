@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.input.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<StackPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.notepad1.NotepadController">
+   <children>
+      <!-- 主界面视图 -->
+      <VBox fx:id="mainView">
+         <children>
+            <!-- 将 MenuBar 和设置按钮放在同一个 HBox 中 -->
+            <HBox alignment="CENTER_LEFT">
+               <children>
+                  <MenuBar fx:id="menuBar" HBox.hgrow="ALWAYS">
+                     <menus>
+                        <!-- 现有的菜单项 -->
+                        <Menu mnemonicParsing="false" text="文件">
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#handleNew" text="新建标签页">
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="N" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                 </accelerator>
+                              </MenuItem>
+                              <MenuItem mnemonicParsing="false" onAction="#handleNewWindow" text="新建窗口">
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="N" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
+                                 </accelerator>
+                              </MenuItem>
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <MenuItem mnemonicParsing="false" onAction="#handleOpen" text="打开">
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                 </accelerator>
+                              </MenuItem>
+                              <Menu mnemonicParsing="false" text="最近使用">
+                                 <items>
+                                   <MenuItem mnemonicParsing="false" onAction="#handleRecentFile1" text="(空)" disable="true" />
+                                 </items>
+                              </Menu>
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <MenuItem mnemonicParsing="false" onAction="#handleSave" text="保存">
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                 </accelerator>
+                              </MenuItem>
+                              <MenuItem mnemonicParsing="false" onAction="#handleSaveAs" text="另存为">
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
+                                 </accelerator>
+                              </MenuItem>
+                              <MenuItem mnemonicParsing="false" onAction="#handleSaveAll" text="全部保存">
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="DOWN" />
+                                 </accelerator>
+                              </MenuItem>
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <MenuItem mnemonicParsing="false" onAction="#handlePageSetup" text="页面设置" />
+                              <MenuItem mnemonicParsing="false" onAction="#handlePrint" text="打印">
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="P" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                 </accelerator>
+                              </MenuItem>
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <MenuItem mnemonicParsing="false" onAction="#handleCloseTab" text="关闭标签页">
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="W" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                 </accelerator>
+                              </MenuItem>
+                              <MenuItem mnemonicParsing="false" onAction="#handleExit" text="退出">
+                                 <accelerator>
+                                    <KeyCodeCombination alt="DOWN" code="F4" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                                 </accelerator>
+                              </MenuItem>
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="编辑">
+                          <items>
+                             <MenuItem mnemonicParsing="false" onAction="#handleUndo" text="撤销">
+                                <accelerator>
+                                   <KeyCodeCombination alt="UP" code="Z" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                </accelerator>
+                             </MenuItem>
+                             <MenuItem mnemonicParsing="false" onAction="#handleRedo" text="重做">
+                                <accelerator>
+                                   <KeyCodeCombination alt="UP" code="Y" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                </accelerator>
+                             </MenuItem>
+                             <SeparatorMenuItem mnemonicParsing="false" />
+                             <MenuItem mnemonicParsing="false" onAction="#handleCut" text="剪切">
+                                <accelerator>
+                                   <KeyCodeCombination alt="UP" code="X" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                </accelerator>
+                             </MenuItem>
+                             <MenuItem mnemonicParsing="false" onAction="#handleCopy" text="复制">
+                                <accelerator>
+                                   <KeyCodeCombination alt="UP" code="C" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                </accelerator>
+                             </MenuItem>
+                             <MenuItem mnemonicParsing="false" onAction="#handlePaste" text="粘贴">
+                                <accelerator>
+                                   <KeyCodeCombination alt="UP" code="V" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                </accelerator>
+                             </MenuItem>
+                             <MenuItem mnemonicParsing="false" onAction="#handleDelete" text="删除">
+                                <accelerator>
+                                   <KeyCodeCombination alt="UP" code="DELETE" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                                </accelerator>
+                             </MenuItem>
+                             <SeparatorMenuItem mnemonicParsing="false" />
+                             <MenuItem mnemonicParsing="false" onAction="#handleFind" text="查找">
+                                <accelerator>
+                                   <KeyCodeCombination alt="UP" code="F" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                </accelerator>
+                             </MenuItem>
+                             <MenuItem mnemonicParsing="false" onAction="#handleFindNext" text="查找下一个">
+                                <accelerator>
+                                   <KeyCodeCombination alt="UP" code="F3" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                                </accelerator>
+                             </MenuItem>
+                             <MenuItem mnemonicParsing="false" onAction="#handleFindPrevious" text="查找上一个">
+                                <accelerator>
+                                   <KeyCodeCombination alt="UP" code="F3" control="UP" meta="UP" shift="DOWN" shortcut="UP" />
+                                </accelerator>
+                             </MenuItem>
+                             <MenuItem mnemonicParsing="false" onAction="#handleReplace" text="替换">
+                                <accelerator>
+                                   <KeyCodeCombination alt="UP" code="H" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                </accelerator>
+                             </MenuItem>
+                             <MenuItem mnemonicParsing="false" onAction="#handleGoTo" text="转到">
+                                <accelerator>
+                                   <KeyCodeCombination alt="UP" code="G" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                </accelerator>
+                             </MenuItem>
+                             <SeparatorMenuItem mnemonicParsing="false" />
+                             <MenuItem mnemonicParsing="false" onAction="#handleSelectAll" text="全选">
+                                <accelerator>
+                                   <KeyCodeCombination alt="UP" code="A" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                </accelerator>
+                             </MenuItem>
+                             <MenuItem mnemonicParsing="false" onAction="#handleTimeDate" text="时间/日期">
+                                <accelerator>
+                                   <KeyCodeCombination alt="UP" code="F5" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                                </accelerator>
+                             </MenuItem>
+                          </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="查看">
+                          <items>
+                             <CheckMenuItem mnemonicParsing="false" onAction="#handleZoomIn" text="放大">
+                                <accelerator>
+                                   <KeyCodeCombination alt="UP" code="PLUS" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                </accelerator>
+                             </CheckMenuItem>
+                             <CheckMenuItem mnemonicParsing="false" onAction="#handleZoomOut" text="缩小">
+                                <accelerator>
+                                   <KeyCodeCombination alt="UP" code="MINUS" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                </accelerator>
+                             </CheckMenuItem>
+                             <CheckMenuItem mnemonicParsing="false" onAction="#handleRestoreDefaultZoom" text="恢复默认缩放" />
+                             <SeparatorMenuItem mnemonicParsing="false" />
+                             <CheckMenuItem mnemonicParsing="false" onAction="#handleStatusBar" text="状态栏" />
+                             <CheckMenuItem mnemonicParsing="false" onAction="#handleWordWrap" text="自动换行" />
+                          </items>
+                        </Menu>
+                     </menus>
+                  </MenuBar>
+                  <!-- 设置按钮放在 MenuBar 外部但在 HBox 内部 -->
+                  <Button fx:id="settingsButton" onAction="#showSettings" text="⚙" style="-fx-background-color: transparent; -fx-font-size: 16px; -fx-text-fill: #666;" />
+               </children>
+            </HBox>
+            <TabPane fx:id="tabPane" tabClosingPolicy="ALL_TABS" VBox.vgrow="ALWAYS" />
+            <HBox fx:id="statusBar" style="-fx-background-color: #f0f0f0; -fx-border-color: #d0d0d0; -fx-border-width: 1 0 0 0; -fx-padding: 5;" visible="false">
+               <children>
+                  <Label fx:id="statusLabel" text="就绪" HBox.hgrow="ALWAYS" />
+                  <Separator orientation="VERTICAL" />
+                  <Label fx:id="positionLabel" text="行 1, 列 1" />
+                  <Separator orientation="VERTICAL" />
+                  <Label fx:id="encodingLabel" text="UTF-8" />
+                  <Separator orientation="VERTICAL" />
+                  <Label fx:id="zoomLabel" text="100%" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      
+      <!-- 设置界面视图 -->
+      <VBox fx:id="settingsView" visible="false" style="-fx-background-color: white;">
+         <children>
+            <!-- 设置界面标题栏，包含返回按钮 -->
+            <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-padding: 15 20; -fx-background-color: #f8f9fa; -fx-border-color: #e9ecef; -fx-border-width: 0 0 1 0;">
+               <children>
+                  <Button fx:id="backButton" onAction="#showMainView" text="←" style="-fx-background-color: transparent; -fx-font-size: 20px; -fx-text-fill: #0078d4; -fx-cursor: hand;" />
+                  <Label text="⚙" style="-fx-font-size: 24px; -fx-text-fill: #0078d4;" />
+                  <Label text="设置" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+               </children>
+            </HBox>
+            
+            <!-- 设置内容区域 -->
+            <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+               <content>
+                  <VBox spacing="20" style="-fx-padding: 20;">
+                     
+                     <!-- 外观设置 -->
+                     <VBox spacing="10">
+                        <children>
+                           <Label text="外观" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #333;" />
+                           <Separator />
+                           <HBox alignment="CENTER_LEFT" spacing="10">
+                              <children>
+                                 <Label text="主题:" style="-fx-min-width: 80px;" />
+                                 <ComboBox fx:id="themeComboBox" prefWidth="150">
+                                    <items>
+                                       <FXCollections fx:factory="observableArrayList">
+                                          <String fx:value="浅色" />
+                                          <String fx:value="深色" />
+                                       </FXCollections>
+                                    </items>
+                                 </ComboBox>
+                              </children>
+                           </HBox>
+                        </children>
+                     </VBox>
+                     
+                     <!-- 文本样式设置 -->
+                     <VBox spacing="10">
+                        <children>
+                           <Label text="文本样式" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #333;" />
+                           <Separator />
+                           
+                           <!-- 字体系列 -->
+                           <HBox alignment="CENTER_LEFT" spacing="10">
+                              <children>
+                                 <Label text="字体:" style="-fx-min-width: 80px;" />
+                                 <ComboBox fx:id="fontFamilyComboBox" prefWidth="200">
+                                    <items>
+                                       <FXCollections fx:factory="observableArrayList">
+                                          <String fx:value="Arial" />
+                                          <String fx:value="Times New Roman" />
+                                          <String fx:value="Courier New" />
+                                          <String fx:value="Verdana" />
+                                          <String fx:value="Helvetica" />
+                                          <String fx:value="Georgia" />
+                                          <String fx:value="微软雅黑" />
+                                          <String fx:value="宋体" />
+                                          <String fx:value="黑体" />
+                                          <String fx:value="楷体" />
+                                       </FXCollections>
+                                    </items>
+                                 </ComboBox>
+                              </children>
+                           </HBox>
+                           
+                           <!-- 字体大小 -->
+                           <HBox alignment="CENTER_LEFT" spacing="10">
+                              <children>
+                                 <Label text="大小:" style="-fx-min-width: 80px;" />
+                                 <Spinner fx:id="fontSizeSpinner" prefWidth="100" min="8" max="72" initialValue="14" />
+                              </children>
+                           </HBox>
+                           
+                           <!-- 字体样式 -->
+                           <HBox alignment="CENTER_LEFT" spacing="10">
+                              <children>
+                                 <Label text="样式:" style="-fx-min-width: 80px;" />
+                                 <CheckBox fx:id="boldCheckBox" text="粗体" />
+                                 <CheckBox fx:id="italicCheckBox" text="斜体" />
+                              </children>
+                           </HBox>
+                           
+                           <!-- 应用范围 -->
+                           <HBox alignment="CENTER_LEFT" spacing="10">
+                              <children>
+                                 <Label text="应用到:" style="-fx-min-width: 80px;" />
+                                 <CheckBox fx:id="applyToAllTabsCheckBox" text="应用到所有标签页" />
+                              </children>
+                           </HBox>
+                        </children>
+                     </VBox>
+                     
+                     <!-- 打开/保存设置 -->
+                     <VBox spacing="10">
+                        <children>
+                           <Label text="打开/保存" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #333;" />
+                           <Separator />
+                           <HBox alignment="CENTER_LEFT" spacing="10">
+                              <children>
+                                 <Label text="编码:" style="-fx-min-width: 80px;" />
+                                 <ComboBox fx:id="encodingComboBox" prefWidth="150">
+                                    <items>
+                                       <FXCollections fx:factory="observableArrayList">
+                                          <String fx:value="UTF-8" />
+                                          <String fx:value="GBK" />
+                                          <String fx:value="GB2312" />
+                                          <String fx:value="ISO-8859-1" />
+                                       </FXCollections>
+                                    </items>
+                                 </ComboBox>
+                              </children>
+                           </HBox>
+                        </children>
+                     </VBox>
+                     
+                     <!-- 时间设置 -->
+                     <VBox spacing="10">
+                        <children>
+                           <Label text="时间" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #333;" />
+                           <Separator />
+                           <HBox alignment="CENTER_LEFT" spacing="10">
+                              <children>
+                                 <Label text="格式:" style="-fx-min-width: 80px;" />
+                                 <ComboBox fx:id="timeFormatComboBox" prefWidth="200">
+                                    <items>
+                                       <FXCollections fx:factory="observableArrayList">
+                                          <String fx:value="yyyy-MM-dd HH:mm:ss" />
+                                          <String fx:value="yyyy/MM/dd HH:mm:ss" />
+                                          <String fx:value="MM/dd/yyyy HH:mm:ss" />
+                                          <String fx:value="dd/MM/yyyy HH:mm:ss" />
+                                       </FXCollections>
+                                    </items>
+                                 </ComboBox>
+                              </children>
+                           </HBox>
+                        </children>
+                     </VBox>
+                     
+                     <!-- 按钮区域 -->
+                     <HBox alignment="CENTER" spacing="20" style="-fx-padding: 20 0 0 0;">
+                        <children>
+                           <Button fx:id="applyButton" onAction="#handleApply" text="应用" style="-fx-background-color: #0078d4; -fx-text-fill: white; -fx-padding: 8 20; -fx-font-size: 14px;" />
+                           <Button fx:id="resetButton" onAction="#handleReset" text="重置" style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-padding: 8 20; -fx-font-size: 14px;" />
+                        </children>
+                     </HBox>
+                     
+                  </VBox>
+               </content>
+            </ScrollPane>
+         </children>
+      </VBox>
+   </children>
+</StackPane>

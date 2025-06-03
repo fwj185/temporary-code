@@ -1,0 +1,22 @@
+/* 浅色主题样式 */
+.root {
+    -fx-base: #ffffff;
+    -fx-background: #ffffff;
+    -fx-control-inner-background: #ffffff;
+    -fx-control-inner-background-alt: #f4f4f4;
+}
+
+.text-area {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #000000;
+    -fx-control-inner-background: #ffffff;
+}
+
+.text-area .content {
+    -fx-background-color: #ffffff;
+}
+
+.status-bar {
+    -fx-background-color: #f0f0f0;
+    -fx-border-color: #d0d0d0;
+}

@@ -1,0 +1,106 @@
+<mxfile>
+  <diagram id="student-usecase" name="学生角色用例图">
+    <mxGraphModel dx="1426" dy="881" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- 学生参与者 -->
+        <mxCell id="student" value="学生" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="300" width="30" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- 用例分组 -->
+        <mxCell id="accountGroup" value="账户管理" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="100" width="200" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="courseGroup" value="课程管理" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="100" width="200" height="200" as="geometry"/>
+        </mxCell>
+        <mxCell id="assignmentGroup" value="作业管理" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="100" width="200" height="200" as="geometry"/>
+        </mxCell>
+        
+        <!-- 账户管理用例 -->
+        <mxCell id="login" value="登录系统" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="accountGroup">
+          <mxGeometry x="60" y="40" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="viewProfile" value="查看个人信息" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="accountGroup">
+          <mxGeometry x="60" y="100" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="editProfile" value="修改个人信息" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="accountGroup">
+          <mxGeometry x="60" y="160" width="80" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- 课程管理用例 -->
+        <mxCell id="viewCourses" value="查看课程列表" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="courseGroup">
+          <mxGeometry x="60" y="40" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="viewCourseDetail" value="查看课程详情" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="courseGroup">
+          <mxGeometry x="60" y="100" width="80" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- 作业管理用例 -->
+        <mxCell id="viewAssignments" value="查看作业列表" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="assignmentGroup">
+          <mxGeometry x="60" y="40" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="viewAssignmentDetail" value="查看作业详情" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="assignmentGroup">
+          <mxGeometry x="60" y="100" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="submitAssignment" value="提交作业" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="assignmentGroup">
+          <mxGeometry x="60" y="160" width="80" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- 连接线 -->
+        <mxCell id="conn1" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;exitX=1;exitY=0.5;" edge="1" parent="1" source="student" target="login">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="140" y="330" as="sourcePoint"/>
+            <mxPoint x="190" y="280" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn2" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="student" target="viewProfile">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="140" y="330" as="sourcePoint"/>
+            <mxPoint x="240" y="140" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn3" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="student" target="editProfile">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="140" y="330" as="sourcePoint"/>
+            <mxPoint x="240" y="200" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn4" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="student" target="viewCourses">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="140" y="330" as="sourcePoint"/>
+            <mxPoint x="490" y="140" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn5" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="student" target="viewCourseDetail">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="140" y="330" as="sourcePoint"/>
+            <mxPoint x="490" y="200" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn6" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="student" target="viewAssignments">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="140" y="330" as="sourcePoint"/>
+            <mxPoint x="740" y="140" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn7" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="student" target="viewAssignmentDetail">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="140" y="330" as="sourcePoint"/>
+            <mxPoint x="740" y="200" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn8" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="student" target="submitAssignment">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="140" y="330" as="sourcePoint"/>
+            <mxPoint x="740" y="260" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

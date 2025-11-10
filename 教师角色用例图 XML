@@ -1,0 +1,117 @@
+<mxfile>
+  <diagram id="teacher-usecase" name="教师角色用例图">
+    <mxGraphModel dx="1426" dy="881" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- 教师参与者 -->
+        <mxCell id="teacher" value="教师" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="400" width="30" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- 用例分组 -->
+        <mxCell id="courseMgmtGroup" value="课程管理" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="150" y="50" width="200" height="300" as="geometry"/>
+        </mxCell>
+        <mxCell id="assignmentMgmtGroup" value="作业管理" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="50" width="200" height="300" as="geometry"/>
+        </mxCell>
+        <mxCell id="gradingGroup" value="批改与成绩" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="650" y="50" width="200" height="300" as="geometry"/>
+        </mxCell>
+        
+        <!-- 课程管理用例 -->
+        <mxCell id="manageCourse" value="管理课程 (增/改/删)" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="courseMgmtGroup">
+          <mxGeometry x="60" y="40" width="80" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="manageStudents" value="管理课程内学生" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="courseMgmtGroup">
+          <mxGeometry x="60" y="120" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="manageLessons" value="管理课时 (增/改/删)" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="courseMgmtGroup">
+          <mxGeometry x="60" y="180" width="80" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- 作业管理用例 -->
+        <mxCell id="manageAssignments" value="管理作业 (增/改/删)" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="assignmentMgmtGroup">
+          <mxGeometry x="60" y="40" width="80" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="viewSubmissions" value="查看学生提交列表" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="assignmentMgmtGroup">
+          <mxGeometry x="60" y="120" width="80" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- 批改与成绩用例 -->
+        <mxCell id="gradeAssignments" value="批改学生作业" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="gradingGroup">
+          <mxGeometry x="60" y="40" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="aiGrading" value="调用AI批改接口" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="gradingGroup">
+          <mxGeometry x="60" y="100" width="80" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="publishGrades" value="发布成绩" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="gradingGroup">
+          <mxGeometry x="60" y="160" width="80" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- 继承学生的查看功能 -->
+        <mxCell id="studentFunctions" value="包含学生所有查看权限" style="ellipse;whiteSpace=wrap;html=1;dashed=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="350" y="400" width="120" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- 连接线 -->
+        <mxCell id="conn1" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="teacher" target="manageCourse">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="140" y="430" as="sourcePoint"/>
+            <mxPoint x="190" y="100" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn2" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="teacher" target="manageStudents">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="140" y="430" as="sourcePoint"/>
+            <mxPoint x="190" y="180" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn3" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="teacher" target="manageLessons">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="140" y="430" as="sourcePoint"/>
+            <mxPoint x="190" y="240" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn4" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="teacher" target="manageAssignments">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="140" y="430" as="sourcePoint"/>
+            <mxPoint x="440" y="100" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn5" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="teacher" target="viewSubmissions">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="140" y="430" as="sourcePoint"/>
+            <mxPoint x="440" y="180" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn6" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="teacher" target="gradeAssignments">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="140" y="430" as="sourcePoint"/>
+            <mxPoint x="690" y="100" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn7" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="teacher" target="aiGrading">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="140" y="430" as="sourcePoint"/>
+            <mxPoint x="690" y="160" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn8" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="teacher" target="publishGrades">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="140" y="430" as="sourcePoint"/>
+            <mxPoint x="690" y="220" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn9" value="继承" style="endArrow=block;html=1;rounded=0;dashed=1;" edge="1" parent="1" source="teacher" target="studentFunctions">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="140" y="430" as="sourcePoint"/>
+            <mxPoint x="410" y="430" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
